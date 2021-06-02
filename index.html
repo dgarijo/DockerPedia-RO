@@ -28,8 +28,9 @@ img {
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Summary</a>
     <a href="#data" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Datasets</a>
     <a href="#software" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Software</a>
+    <a href="#ontology" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Ontology</a>
     <a href="#authors" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About the authors</a>
-    <a href="#bib" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bibliography</a>
+    <!-- <a href="#bib" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bibliography</a> -->
   </div>
 </nav>
 
@@ -61,6 +62,7 @@ img {
     <p>
       <strong>Summary (extracted from the paper)</strong>: This paper proposes a framework for automatically describing software images in a machine-readable manner by i) creating a vocabulary to describe software images; ii) developing an annotation framework designed to automatically document the underlying environment of software images and iii) creating DockerPedia, a Knowledge Graph with over 150,000 annotated software images, automatically described using our framework. We illustrate the usefulness of our approach in finding images with required software dependencies, comparing similar software images, addressing versioning problems when running computational experiments and flagging problems with vulnerable software dependencies.
     </p>
+    <p><strong>Permanent URL of this page</strong>: <a href="https://w3id.org/dgarijo/ro/dockerpedia">https://w3id.org/dgarijo/ro/dockerpedia</a></p>
 <!--
     <p>This page and the materials described on it (excluding external references) is available at a <a href="https://w3id.org/">permanent URL</a>. </p>
   -->
@@ -70,13 +72,11 @@ img {
   <div class="w3-container" id="data" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-green"><b>Datasets.</b></h1>
     <hr style="width:50px;border:5px solid green" class="w3-round">
-    <h3>Datasets</h3>
-    We used the following datasets for our paper. We will deposit them in Zenodo upon paper acceptance (in order to preserve annonimity requirements). We note that some of the files may not have the same source date, as we performed the analysis as new data became available. However, since Wikidata is continouslu evolving, all files are sufficiently close in time so as to be compatible with one another.
+    There are two main datasets produced as a result of our publication:
     <ul>
+      <li><a href="https://doi.org/10.6084/m9.figshare.6260822.v1">The Dockerpedia Knowledge Graph dump</a>: Turtle dump with the 150,000 annotated images from DockerHub. Images are annotated according to the DockerPedia ontology (see below for more pointers and information)</li>
 
-      <li>DockerPedia dump</li>
-
-      <li><a href="https://doi.org/10.6084/m9.figshare.14718450.v1">Query results used in the examples</a>. Also available <a href="https://github.com/dgarijo/DockerPedia-RO/queries">in GitHub</a>. </li>
+      <li><a href="https://doi.org/10.6084/m9.figshare.14718450.v1">Query results used in the listing examples shown in the paper</a>. Also available <a href="https://github.com/dgarijo/DockerPedia-RO/queries">in GitHub</a>. </li>
 
     </ul>
 
@@ -92,29 +92,29 @@ img {
   <div class="w3-container" id="software" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-green"><b>Software</b></h1>
     <hr style="width:50px;border:5px solid green" class="w3-round">
-    The pointers for using the main software used can be found below:
+    The DockerPedia framework has the following components:
     <ul>
-      <li>Annotator.</li>
-      <li>Code used for the website.</li>
-      <li>Visualization</li>
+      <li><a href="https://github.com/dockerpedia/annotator">DockerPedia annotator</a>: Tool built on top of <a href="https://github.com/dockerpedia/clair">Clair</a> for analyzing and annotating the contents of Docker images.</li>
+      <li><a href="https://dockerpedia.inf.utfsm.cl/visualization">Vulnerability visualization</a>. </li>
+      <li><a href="https://github.com/dockerpedia/dockerpedia-web">DockerPedia website code</a>. Includes examples and queries for the SPARQL endpoint. </li>
+      <li><a href="https://dockerpedia.inf.utfsm.cl/query">SPARQL endpoint</a> (note, only some examples are loaded, as the full dataset is over 20GB)</li>
+      <li><a href="https://hub.docker.com/u/dockerpedia">Sample images</a> used to assess the quality of DockerPedia.</li>
 
     </ul>
   </div>
 
-  <div class="w3-container" id="software" style="margin-top:75px">
+  <div class="w3-container" id="ontology" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-green"><b>Ontology</b></h1>
     <hr style="width:50px;border:5px solid green" class="w3-round">
+
     The DockerPedia Ontology can be found in the following URL.
+    <ul>
+      <li>The latest version of the ontology is avilable at <a href="http://dockerpedia.inf.utfsm.cl/vocab#">http://dockerpedia.inf.utfsm.cl/vocab#</a></li>
+      <li>The version 0.1.0 of the ontology documentation can be accessed at <a href="https://cbuil.github.io/dockerpedia-ontology/release/0.1.0/index-en.html">https://cbuil.github.io/dockerpedia-ontology/release/0.1.0/index-en.html</a></li>
+      <li>The version 0.1.0 of the TTL serialization of the ontology is avilable at <a href="https://cbuil.github.io/dockerpedia-ontology/release/0.1.0/ontology.ttl">https://cbuil.github.io/dockerpedia-ontology/release/0.1.0/ontology.ttl</a></li>
 
-    Missing link to the vocab in GitHub.
-  </div>
+    </ul>
 
-  <div class="w3-container" id="bib" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-green"><b>Bibliography.</b></h1>
-    <hr style="width:50px;border:5px solid green" class="w3-round">
-    <ol>
-      <li id="wd">Vrandecic, D., Krotzsch, M.: Wikidata: a free collaborative knowledgebase. Com-munications of the ACM57(10), 78–85 (2014)</li>
-    </ol>
   </div>
 
   <!-- The Team -->
